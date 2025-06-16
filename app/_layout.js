@@ -21,7 +21,7 @@ const MainLayout = () => {
       router.replace('signIn');
     }
   }, [isAuthenticated]); 
-  return <Stack />
+  return <Stack screenOptions={{headerShown : false}}/>
 }
 export default function RootLayout() {
   return (
