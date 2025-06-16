@@ -25,7 +25,7 @@ export default function SignUp() {
     setLoading(true);
     let response = await register(emailRef.current, passwordRef.current, usernameRef.current, genderRef.current);
     setLoading(false);
-    console.log('got results :' ,response);
+    // console.log('got results :' ,response);
     if(!response.success) {
       Alert.alert('Sign Up' , response.msg);
       return;
