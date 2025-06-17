@@ -18,7 +18,7 @@ export default function Home() {
         fetchUsers();
     }, []);
     const  fetchUsers = async () => {
-      console.log('fetching users');
+      // console.log('fetching users');
       const q = query(usersRef, where('userId', '!=', user?.uid));
       const snapshot = await getDocs(q);
       // console.log('users snapshot :', snapshot);

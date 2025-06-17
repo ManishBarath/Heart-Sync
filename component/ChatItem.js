@@ -18,7 +18,7 @@ export default function ChatItem({item , router, noBorder, currentUser}) {
         // console.log(roomId)
         const docRef = doc(db , 'rooms' , roomId);
         const messagesRef = collection(docRef , "messages");
-        const q = query(messagesRef, orderBy("createdAt" , "asc"));
+        const q = query(messagesRef, orderBy("createdAt" , "desc"));
          
         let unsub = onSnapshot(q , (snapshot) =>{
             let allMesssages = snapshot.docs.map(doc => {

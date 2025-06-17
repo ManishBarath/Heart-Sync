@@ -3,7 +3,7 @@ import MessageItem from './MessageItem'
 
 export default function MessageList({messages ,scrollViewRef, currentUser}) {
   return (
-    <ScrollView ref = {scrollViewRef} showsVerticalScrollIndicator ={false} contentContainerStyle ={{paddingTop: 10}} >
+    <ScrollView  keyboardShouldPersistTaps="handled" ref = {scrollViewRef} showsVerticalScrollIndicator ={false} contentContainerStyle ={{paddingTop: 10}} >
       {
         messages.map((message , index ) => {
           return (

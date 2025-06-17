@@ -13,14 +13,14 @@ export default function SignIn() {
   const emailRef = useRef("");
   const passwordRef = useRef("");
   const handleLogin = async () => {
-        console.log('email :', emailRef.current, 'password :', passwordRef.current);
+        // console.log('email :', emailRef.current, 'password :', passwordRef.current);
 
     if(!emailRef.current || !passwordRef.current) {
       Alert.alert('SignIn' , "Please fill all fields");
       return;
     }
     //login process
-    console.log('email :', emailRef.current, 'password :', passwordRef.current);
+    // console.log('email :', emailRef.current, 'password :', passwordRef.current);
     setLoading(true);
     const response = await login(emailRef.current, passwordRef.current);
     // console.log('got results :' ,response);
@@ -42,7 +42,7 @@ export default function SignIn() {
         source={require('../assets/images/login.png')}
         />
       </View>
-      <View className='gap-10'>
+      <View className='gap-10 p-4'>
         <Text style = {{fontSize: hp(4 )}} className='font-bold text-center tracking-wide text-neutral-800'> SignIn </Text> 
         <View className='gap-4'>
             <View style = {{height : hp(7)}} className='bg-neutral-200 gap-4 px-4 flex-row items-center rounded-xl'>

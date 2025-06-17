@@ -79,7 +79,7 @@ export default function ChatRoom() {
             // console.log(newDoc.id);
         }catch(err){
             Alert.alert('Message' , err.message);
-        }color
+        }
     }
   return ( 
     <CustomKeyboardView inChat = {true}>
@@ -91,7 +91,7 @@ export default function ChatRoom() {
                 <View className = "flex-1">
                     <MessageList scrollViewRef = {scrollViewRef} messages = {messages} currentUser={user} />
                 </View>
-                <View  style={{marginBottom :hp(2.7)}} className = "pt-2">
+                <View  style={{marginBottom :hp(3)}} className = "pt-2">
                     <View className = "mx-3 flex-row bg-white border justify-between  p-2 border-neutral-300 rounded-full pl-5"> 
                         <TextInput 
                             ref = {inputRef}
@@ -99,15 +99,16 @@ export default function ChatRoom() {
                             placeholder='Type a message...'
                             style = {{fontSize: hp(2), color: '#737373'}}
                             className ="flex-1 mr-2 "
+                              blurOnSubmit={false}
+                                onSubmitEditing={handleSendMessage}
                         />
                         <TouchableOpacity onPress={handleSendMessage} className = "bg-neutral-200 p-2 mr-[1px] rounded-full">
-                            <Feather name="send" size={hp(2.7)} color="#737373" />
+                            <Feather name="send" size={hp(3)} color="#737373" />
                         </TouchableOpacity>
                     </View>
                 </View>
             </View>
         </View>
     </CustomKeyboardView>
-    
   )
 }

@@ -68,7 +68,7 @@ export const AuthProvider = ({ children }) => {
   const register = async (email, password, username, gender) => {
     try {
       const response = await createUserWithEmailAndPassword(auth, email, password);
-      console.log("User registered:", response.user);
+      // console.log("User registered:", response.user);
 
       await setDoc(doc(db, "users", response.user.uid), {
         username,

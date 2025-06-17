@@ -22,7 +22,7 @@ export default function HomeHeader() {
     }
 
     const handleLogout = async () => {
-        console.log('Logout clicked');
+        // console.log('Logout clicked');
         try{
             await logout();
         }catch (error) {
