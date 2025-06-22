@@ -1,6 +1,7 @@
+require('ts-node/register');
 const { getDefaultConfig } = require("expo/metro-config");
 const { withNativeWind } = require('nativewind/metro');
- 
+
 const config = getDefaultConfig(__dirname);
 
 // Add cjs extension support

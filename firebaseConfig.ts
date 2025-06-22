@@ -1,11 +1,13 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
+import { Platform } from "react-native";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-import { initializeAuth , getReactNativePersistence, getAuth } from "firebase/auth";
+import * as firebaseAuth from "firebase/auth";
+
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { getFirestore , collection } from "firebase/firestore";
-import { Platform } from "react-native";
+
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -17,26 +19,24 @@ const firebaseConfig = {
   appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
   measurementId: process.env.EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
+    const reactNativePersistence = (firebaseAuth as any).getReactNativePersistence;
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-let auth;
+let auth: firebaseAuth.Auth;
 
 if (Platform.OS === 'web') {
-  auth = getAuth(app); // use default for web
+  auth = firebaseAuth.getAuth(app); // use default auth for web
 } else {
-  auth = initializeAuth(app, {
-    persistence: getReactNativePersistence(AsyncStorage)
+  auth = firebaseAuth.initializeAuth(app, {
+    persistence: reactNativePersistence(AsyncStorage),
   });
 }
-// export const auth = initializeAuth(app, {
-//     persistence: getReactNativePersistence(AsyncStorage)
-// });
+
 export const db = getFirestore(app);
 
 export const usersRef = collection(db, 'users');
 export const roomRef = collection(db, 'rooms');
 
 export { auth};
-

@@ -12,17 +12,21 @@ const MainLayout = () => {
     if(typeof isAuthenticated == 'undefined') {
       return;
     } 
-    const inApp = segments[0] == '(tabs)';
+    const inApp = segments[0]=='(tabs)';
 
     if(isAuthenticated && !inApp) {
       // Redirect to login if not authenticated and trying to access a protected route
-      router.replace('Home');
+      router.replace('/Calender');
     } else if(isAuthenticated == false) {
       // Redirect to home if authenticated and trying to access login
-      router.replace('signIn');
+      router.replace('/signIn');
     }
   }, [isAuthenticated]); 
-  return <Stack screenOptions={{headerShown : false}}/>
+  return (
+  <Stack screenOptions={{headerShown : false}}>
+    <Stack.Screen name="(tabs)" options={{headerShown : false}} />
+  </Stack>
+  )
 }
 export default function RootLayout() {
   return (

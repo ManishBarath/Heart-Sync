@@ -1,19 +1,22 @@
-import { Platform } from 'react-native';
-import { KeyboardAvoidingView, ScrollView } from 'react-native';
+import React, { ReactNode } from 'react';
+import { Platform, KeyboardAvoidingView, ScrollView, KeyboardAvoidingViewProps, ScrollViewProps } from 'react-native';
 
 const ios = Platform.OS === 'ios';
 
-export default function CustomKeyboardView({ children, inChat }) {
-  let kavConfig = {};
-  let scrollViewConfig = {};
+interface CustomKeyboardViewProps {
+  children: ReactNode;
+  inChat?: boolean;
+}
+
+export default function CustomKeyboardView({ children, inChat }: CustomKeyboardViewProps) {
+  let kavConfig: Partial<KeyboardAvoidingViewProps> = {};
+  let scrollViewConfig: Partial<ScrollViewProps> = {};
 
   if (inChat) {
     kavConfig = { keyboardVerticalOffset: 80 };
     scrollViewConfig = {
       contentContainerStyle: { flex: 1 },
-      // <— allow taps on children (e.g. your Send button) to go through
       keyboardShouldPersistTaps: 'handled',
-      // optional: let drag dismiss the keyboard
       keyboardDismissMode: 'on-drag',
     };
   }

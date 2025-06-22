@@ -15,5 +15,5 @@
     ".expo/types/**/*.ts",
     "expo-env.d.ts",
     "nativewind-env.d.ts"
-, "app/signIn.js", "app/_layout.js", "app/(tabs)/_layout.js"  ]
+, "app/signIn.js", "app/_layout.js", "app/(tabs)/_layout.js", "app/(tabs)/ChatRoom.js", "component/MessageList.js", "component/MessageItem.js", "context/AuthContext.tsx"  ]
 }
