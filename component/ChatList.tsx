@@ -2,12 +2,12 @@ import { View, FlatList } from 'react-native';
 import React from 'react';
 import { useRouter } from 'expo-router';
 import ChatItem from './Chatitem';
-import { UserType } from '@/types/types';
+// import { UserType } from '@/types/types';
 import { DocumentData } from 'firebase/firestore';
 
 interface ChatListProps {
   users: DocumentData[];
-  currentUser: UserType;
+  currentUser: DocumentData;
 }
 
 export default function ChatList({ users, currentUser }: ChatListProps) {

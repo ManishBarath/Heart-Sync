@@ -7,6 +7,7 @@ import ChatList from '../../component/ChatList';
 import Loading from '../../component/Loading';
 import { getDocs, query, where, QuerySnapshot, DocumentData } from 'firebase/firestore';
 import { usersRef } from '../../firebaseConfig';
+import HomeHeader from '@/component/HomeHeader';
 
 export default function Home() {
   const { logout, user } = useAuth();

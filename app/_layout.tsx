@@ -4,10 +4,12 @@ import { AuthProvider, useAuth } from "../context/AuthContext";
 import { Stack, useRouter, useSegments } from "expo-router";
 import { MenuProvider } from 'react-native-popup-menu';
 
+
 const MainLayout = () => {
   const {isAuthenticated} = useAuth();
   const segments = useSegments();
   const router =useRouter();
+  
   useEffect(() => {
     if(typeof isAuthenticated == 'undefined') {
       return;
@@ -22,6 +24,7 @@ const MainLayout = () => {
       router.replace('/signIn');
     }
   }, [isAuthenticated]); 
+    
   return (
   <Stack screenOptions={{headerShown : false}}>
     <Stack.Screen name="(tabs)" options={{headerShown : false}} />

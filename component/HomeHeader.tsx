@@ -13,15 +13,17 @@ import { MenuItems } from './CustomMenuItems';
 import { Feather, AntDesign } from '@expo/vector-icons';
 import { useAuth } from '../context/AuthContext';
 import React from 'react';
+import { useNavigation, useRouter } from 'expo-router';
 
 const ios = Platform.OS == 'ios';
 
 export default function HomeHeader() {
+  const router = useRouter();
   const { top } = useSafeAreaInsets();
   const { logout } = useAuth();
-
+ const navigation = useNavigation();
   const handleProfile = () => {
-    console.log('Profile clicked');
+    router.push({ pathname: "/Profile" });
   };
 
   const handleLogout = async () => {
